@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320871441213",
+    "project_id": "momentum-abbf6",
+    "storage_bucket": "momentum-abbf6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320871441213:android:835c624bc46ebc959c5b54",
+        "android_client_info": {
+          "package_name": "com.example.momentum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGzqoOx-_F9RWs83-hcHdqPhhdRZ0CtaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320871441213:android:f63229f8a6917c6f9c5b54",
+        "android_client_info": {
+          "package_name": "com.renova.momentum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGzqoOx-_F9RWs83-hcHdqPhhdRZ0CtaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
