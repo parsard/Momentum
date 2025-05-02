@@ -14,4 +14,5 @@ class AppColors {
   static final HexColor babyPowder = HexColor('#F7F7F2');
   static final HexColor beige = HexColor('#E4E6C3');
   static final HexColor erieBlack = HexColor('#222725');
+  static final HexColor myOrange = HexColor('#F6AE2D');
 }
