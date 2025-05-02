@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:momentum/ui/view/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:momentum/viewModel/login_view_model.dart';
 
@@ -24,10 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => LoginViewModell())],
-      child: MaterialApp(
-        title: 'Momentum',
-        theme: ThemeData(primarySwatch: Colors.blue),
-      ),
+      child: LoginPage(),
     );
   }
 }
