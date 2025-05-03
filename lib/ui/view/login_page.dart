@@ -17,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: AppColors.babyPowder,
         body: Center(
@@ -28,8 +29,28 @@ class _LoginPageState extends State<LoginPage> {
                 'Momentum ',
                 style: TextStyle(fontSize: 45, fontFamily: 'Madimi One'),
               ),
-              const SizedBox(height: 40),
-              SvgPicture.asset(SvgPath.googleIcon, width: 200, height: 200),
+              const SizedBox(height: 20),
+              Center(
+                child: SizedBox(
+                  width: 240,
+                  height: 240,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 0,
+                        top: 30,
+                        child: Image.asset(SvgPath.stopWatch, width: 200),
+                      ),
+                      Positioned(
+                        right: -10,
+                        bottom: -10,
+                        child: Image.asset(SvgPath.girlCalender, width: 170),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
               const SizedBox(height: 100),
               const Text(
                 'Log In',
