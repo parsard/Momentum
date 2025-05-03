@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:momentum/ui/view/login_page.dart';
+import 'package:momentum/ui/view/time_tracker_page.dart';
 import 'package:provider/provider.dart';
 import 'package:momentum/viewModel/login_view_model.dart';
 
@@ -23,11 +25,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => LoginViewModel()),
-      ],
-      child: LoginPage(),
+    return ChangeNotifierProvider(
+      create: (_) => LoginViewModel(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: AuthWrapper(),
+      ),
     );
+  }
+}
+
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      return TimeTrackerPage();
+    } else {
+      return LoginPage();
+    }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:momentum/core/constants/app_colors.dart';
+
+import '../../core/constants/app_colors.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});

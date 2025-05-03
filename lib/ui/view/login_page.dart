@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                     Provider.of<LoginViewModel>(
                       context,
                       listen: false,
-                    ).loginWithGoogle();
+                    ).loginWithGoogle(context);
                   },
                 ),
               ),
