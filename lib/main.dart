@@ -24,7 +24,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => LoginViewModell())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => LoginViewModel()),
+      ],
       child: LoginPage(),
     );
   }

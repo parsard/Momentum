@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   firebase_core:
   cloud_firestore:
+  firebase_auth:
+  google_sign_in:
   provider:
   hexcolor:
   flutter_svg:
