@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:momentum/core/constants/app_colors.dart';
 import 'package:momentum/core/constants/svg_path.dart';
-import 'package:momentum/ui/view/widgets/custom_outlined_button.dart';
+import 'package:momentum/ui/widgets/custom_outlined_button.dart';
 import 'package:momentum/viewModel/login_view_model.dart';
 import 'package:provider/provider.dart';
 
