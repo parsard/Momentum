@@ -1,15 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:momentum/core/constants/app_colors.dart';
-import 'package:momentum/ui/view/time_tracker_page.dart';
-import 'package:momentum/viewModel/time_tracker_view_model.dart';
 import 'package:provider/provider.dart';
-
-import '../../model/TimeEntry.dart';
-import '../view/TimeListPage.dart';
+import '../../core/constants/app_colors.dart';
+import '../../viewModel/time_tracker_view_model.dart';
 
 class TimerInputDialog extends StatefulWidget {
   const TimerInputDialog({super.key});
@@ -23,7 +18,7 @@ class _TimerInputDialogState extends State<TimerInputDialog> {
   Widget build(BuildContext context) {
     final timeTrackerViewModel = Provider.of<TimeTrackerViewModel>(context);
     return Dialog(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(8),
           topRight: Radius.circular(8),
@@ -35,7 +30,7 @@ class _TimerInputDialogState extends State<TimerInputDialog> {
         width: 412,
         height: 130,
         color: AppColors.green_100,
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           children: [
             Expanded(
@@ -51,10 +46,9 @@ class _TimerInputDialogState extends State<TimerInputDialog> {
                       fontSize: 16,
                       color: HexColor('#898989'),
                     ),
-                    decoration: InputDecoration(border: InputBorder.none),
+                    decoration: const InputDecoration(border: InputBorder.none),
                   ),
-                  SizedBox(height: 8),
-
+                  const SizedBox(height: 8),
                   Text(
                     timeTrackerViewModel.timeDisplay,
                     style: TextStyle(
@@ -71,13 +65,8 @@ class _TimerInputDialogState extends State<TimerInputDialog> {
               onTap: () {
                 timeTrackerViewModel.togglePlayPause();
 
-                // If paused, navigate
                 if (!timeTrackerViewModel.isPlaying) {
                   Navigator.of(context).pop();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TimeListPage()),
-                  );
                 }
               },
               child: SvgPicture.asset(

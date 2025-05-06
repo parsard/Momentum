@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:momentum/ui/widgets/TimerInputDialog.dart';
+import 'package:momentum/ui/widgets/timer_input_dialog.dart';
 
 import '../../core/constants/app_colors.dart';
 
