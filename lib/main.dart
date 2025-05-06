@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Momentum',
-        home: TimeTrackerPage(),
+        home: LoginPage(),
       ),
     );
   }
