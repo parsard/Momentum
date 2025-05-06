@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:momentum/core/constants/app_colors.dart';
 import 'package:momentum/ui/widgets/add_button.dart';
@@ -24,7 +25,7 @@ class TimeTrackerPage extends StatelessWidget {
                 Positioned(
                   top: 250,
                   left: 90,
-                  child: Image.asset('assets/trackerPage/Girl1.png'),
+                  child: Image.asset('assets/trackerPage/Girl.png'),
                 ),
                 Positioned(
                   bottom: 200,
