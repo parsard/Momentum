@@ -50,6 +50,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "320871441213-krrhaiusqri7db6ne8jf3r5v1hi88cbq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.renova.momentum",
+            "certificate_hash": "b80fe43deb35887d0ee455368c13d97a1801f09d"
+          }
+        },
+        {
           "client_id": "320871441213-s6dedp8ubijhjqbjri1gkaksjh0rkfvf.apps.googleusercontent.com",
           "client_type": 3
         }

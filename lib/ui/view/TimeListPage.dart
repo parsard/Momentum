@@ -3,7 +3,7 @@ import 'package:momentum/ui/view/time_tracker_page.dart';
 import 'package:momentum/ui/view/widgets/footer.dart';
 import 'package:momentum/viewModel/time_tracker_view_model.dart';
 import 'package:momentum/ui/widgets/AddButton.dart';
-import 'package:momentum/viewModel/time_list_view_model.dart'; // <-- IMPORT THIS
+import 'package:momentum/viewModel/time_list_view_model.dart';
 import 'package:momentum/viewModel/time_tracker_view_model.dart';
 import 'package:provider/provider.dart';
 import '../widgets/TimeEntryCard.dart';
@@ -23,29 +23,17 @@ class TimeListPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       child: Row(
                         children: [
                           Text(
                             'Today',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'Mulish',
-                            ),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Mulish'),
                           ),
                           Icon(Icons.keyboard_arrow_down),
                           FloatingActionButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TimeTrackerPage(),
-                                ),
-                              );
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => TimeTrackerPage()));
                             },
                             child: Icon(Icons.arrow_back),
                           ),
@@ -59,16 +47,8 @@ class TimeListPage extends StatelessWidget {
                           final entry = timeEntries[index];
                           return TimeEntryCard(
                             entry: entry,
-                            onDelete:
-                                () => listVM.removeEntryByKey(
-                                  entry.projectName +
-                                      entry.startTime.toString(),
-                                ),
-                            onFavorite:
-                                () => listVM.toggleFavorite(
-                                  entry.projectName +
-                                      entry.startTime.toString(),
-                                ),
+                            onDelete: () => listVM.removeEntryByKey(entry.projectName + entry.startTime.toString()),
+                            onFavorite: () => listVM.toggleFavorite(entry.projectName + entry.startTime.toString()),
                           );
                         },
                       ),

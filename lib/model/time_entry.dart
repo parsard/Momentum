@@ -19,5 +19,6 @@ class TimeEntry {
     this.description,
     this.isTracking = false,
     this.isFavorite = false,
+    required String id,
   });
 }

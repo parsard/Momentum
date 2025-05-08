@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:momentum/ui/view/login_page.dart';
 import 'package:momentum/ui/view/time_tracker_page.dart';
+import 'package:momentum/viewModel/time_list_view_model.dart';
+import 'package:momentum/viewModel/time_tracker_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:momentum/viewModel/login_view_model.dart';
 
@@ -17,7 +19,19 @@ void main() async {
       projectId: 'momentum-abbf6',
     ),
   );
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => TimeTrackerViewModel()),
+
+        // ChangeNotifierProvider(
+        //   create: (context) => TimeListViewModel(Provider.of<TimeTrackerViewModel>(context, listen: false)),
+        // ),
+        ChangeNotifierProvider(create: (_) => LoginViewModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,13 +39,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => LoginViewModel(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: AuthWrapper(),
-      ),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: AuthWrapper());
   }
 }
 

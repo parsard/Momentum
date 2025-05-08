@@ -7,8 +7,7 @@ import 'package:momentum/core/constants/app_colors.dart';
 import 'package:momentum/ui/view/time_tracker_page.dart';
 import 'package:momentum/viewModel/time_tracker_view_model.dart';
 import 'package:provider/provider.dart';
-
-import '../../model/time_entry.dart';
+import 'package:momentum/ui/widgets/TimeEntryCard.dart';
 import '../view/TimeListPage.dart';
 
 class TimerInputDialog extends StatefulWidget {
@@ -24,10 +23,7 @@ class _TimerInputDialogState extends State<TimerInputDialog> {
     final timeTrackerViewModel = Provider.of<TimeTrackerViewModel>(context);
     return Dialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-        ),
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
       ),
       elevation: 0.0,
       backgroundColor: Colors.transparent,
@@ -74,16 +70,11 @@ class _TimerInputDialogState extends State<TimerInputDialog> {
                 // If paused, navigate
                 if (!timeTrackerViewModel.isPlaying) {
                   Navigator.of(context).pop();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TimeListPage()),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => TimeListPage()));
                 }
               },
               child: SvgPicture.asset(
-                timeTrackerViewModel.isPlaying
-                    ? 'assets/buttons/pause.svg'
-                    : 'assets/buttons/play.svg',
+                timeTrackerViewModel.isPlaying ? 'assets/buttons/pause.svg' : 'assets/buttons/play.svg',
                 width: 56,
                 height: 56,
               ),

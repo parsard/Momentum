@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../model/time_entry.dart';
+import 'package:momentum/model/time_entry.dart';
 
 class TimeTrackerViewModel extends ChangeNotifier {
-  final TextEditingController projectController = TextEditingController(
-    text: 'Project 1',
-  );
+  final TextEditingController projectController = TextEditingController(text: 'Project 1');
   String timeDisplay = '00:00:00';
   bool isPlaying = false;
 
@@ -22,6 +20,7 @@ class TimeTrackerViewModel extends ChangeNotifier {
       _startTimer();
     } else {
       _stopTimer();
+      print("✅ Entries Updated: ${timeEntries.length}, Content: $timeEntries");
     }
     notifyListeners();
   }
@@ -45,6 +44,7 @@ class TimeTrackerViewModel extends ChangeNotifier {
       duration: _elapsedTime,
       startTime: _startTime,
       endTime: DateTime.now(),
+      id: '',
     );
 
     _timeEntries.add(newTimeEntry);

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:momentum/ui/widgets/TimerInputDialog.dart';
+import 'package:momentum/viewModel/time_list_view_model.dart';
+import 'package:momentum/viewModel/time_tracker_view_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constants/app_colors.dart';
 
@@ -17,9 +20,9 @@ class AddButton extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (BuildContext context) {
-                  return TimerInputDialog();
-                },
+                builder:
+                    (context) =>
+                        ChangeNotifierProvider(create: (_) => TimeTrackerViewModel(), child: TimerInputDialog()),
               );
             },
             backgroundColor: AppColors.green_500,
