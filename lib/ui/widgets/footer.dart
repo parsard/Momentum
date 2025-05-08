@@ -41,7 +41,9 @@ class AppFooter extends StatelessWidget {
                 ),
 
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/todo');
+                  },
                   icon: SvgPicture.asset(
                     'assets/footer/task-square-unselect.svg',
                     width: 32,
@@ -59,7 +61,9 @@ class AppFooter extends StatelessWidget {
                 ),
 
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/tracker');
+                  },
                   icon: SvgPicture.asset(
                     'assets/footer/timer-start-select.svg',
                     width: 32,

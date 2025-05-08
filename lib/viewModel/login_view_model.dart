@@ -32,10 +32,7 @@ class LoginViewModel extends ChangeNotifier {
       final user = response.user;
       if (user != null) {
         print('User signed in: ${user.displayName}, ${user.email}');
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => TimeTrackerPage()),
-        );
+        Navigator.of(context).pushNamed('/tracker');
       } else {
         print('User sign-in failed.');
       }

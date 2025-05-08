@@ -13,7 +13,7 @@ class TimeTrackerViewModel extends ChangeNotifier {
   DateTime? _startTime;
   Duration _elapsedTime = Duration.zero;
 
-  List<TimeEntry> _timeEntries = [];
+  final List<TimeEntry> _timeEntries = [];
   int? _trackingIndex;
 
   // Getter for time entries

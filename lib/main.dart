@@ -1,10 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:momentum/ui/view/login_page.dart';
 import 'package:momentum/ui/view/time_tracker_page.dart';
+import 'package:momentum/ui/view/todo_page.dart';
 import 'package:momentum/viewModel/login_view_model.dart';
 import 'package:momentum/viewModel/time_tracker_view_model.dart';
+import 'package:momentum/viewModel/todo_page_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -29,9 +30,14 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => TimeTrackerViewModel()),
+        ChangeNotifierProvider(create: (_) => TodoPageViewmodel()),
       ],
       //child: LoginPage(),
       child: MaterialApp(
+        routes: {
+          '/todo': (context) => const TodoPage(),
+          '/tracker': (context) => const TimeTrackerPage(),
+        },
         debugShowCheckedModeBanner: false,
         title: 'Momentum',
         home: LoginPage(),

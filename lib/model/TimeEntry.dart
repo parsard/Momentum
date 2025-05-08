@@ -3,7 +3,7 @@ class TimeEntry {
   Duration duration;
   DateTime? startTime;
   DateTime? endTime;
-  String? Description;
+  String? description;
   bool isTracking;
   bool isFavorite;
 
@@ -12,7 +12,7 @@ class TimeEntry {
     required this.duration,
     this.startTime,
     this.endTime,
-    this.Description,
+    this.description,
     this.isTracking = false,
     this.isFavorite = false,
   });
