@@ -5,21 +5,18 @@ import 'package:momentum/ui/view/time_tracker_page.dart';
 
 class LoginViewModel extends ChangeNotifier {
   final _googleSignIn = GoogleSignIn(
-    clientId:
-        '320871441213-s6dedp8ubijhjqbjri1gkaksjh0rkfvf.apps.googleusercontent.com',
     scopes: ['email', 'https://www.googleapis.com/auth/contacts.readonly'],
   );
-
   Future<void> loginWithGoogle(BuildContext context) async {
     try {
-      // Sign in with Google
+      print('Attempting Google Sign-In...');
       final signInAccount = await _googleSignIn.signIn();
       if (signInAccount == null) {
-        // User canceled the sign-in
-        print('Sign-in was canceled');
+        print('Sign-in was canceled by the user.');
         return;
       }
 
+      print('Google Sign-In successful. Fetching authentication...');
       final googleAuth = await signInAccount.authentication;
 
       final googleCredential = GoogleAuthProvider.credential(
@@ -27,7 +24,7 @@ class LoginViewModel extends ChangeNotifier {
         idToken: googleAuth.idToken,
       );
 
-      // Sign in with Firebase
+      print('Signing in with Firebase...');
       final response = await FirebaseAuth.instance.signInWithCredential(
         googleCredential,
       );
@@ -35,19 +32,15 @@ class LoginViewModel extends ChangeNotifier {
       final user = response.user;
       if (user != null) {
         print('User signed in: ${user.displayName}, ${user.email}');
-
-        // Navigate to TimeTrackerPage after successful login
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => TimeTrackerPage()),
         );
       } else {
-        print('User sign-in failed');
+        print('User sign-in failed.');
       }
     } catch (error) {
       print('Error during sign-in: $error');
     }
-
-    notifyListeners();
   }
 }
